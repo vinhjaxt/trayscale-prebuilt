@@ -23,7 +23,7 @@ jobs:
 
     - name: Build
       run: |
-        docker run --rm -it -v "$(pwd):/app:rw" ubuntu:latest bash -c ' \
+        docker run --rm -v "$(pwd):/app:rw" ubuntu:latest bash -c ' \
         apt update -y && \
         apt-get install -y --no-install-recommends apt-utils build-essential sudo git libgtk-4-dev libadwaita-1-dev=1.2.0-1ubuntu2 && \
         ./dist.sh build \
