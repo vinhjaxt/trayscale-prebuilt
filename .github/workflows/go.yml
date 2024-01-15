@@ -23,7 +23,7 @@ jobs:
 
     - name: Build
       run: |
-        sudo apt update -y && sudo apt install -y libgtk-4-dev
+        sudo apt update -y && sudo apt install -y libgtk-4-dev libadwaita-1-dev
         ./dist.sh build
 
     # Create release
