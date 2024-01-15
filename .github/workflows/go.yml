@@ -19,7 +19,9 @@ jobs:
     - name: Build
       run: |
         docker run --rm -v "$(pwd):/app:rw" ubuntu:lunar bash -c ' \
-        add-apt-repository ppa:lunar/libadwaita-1-dev
+        apt update -y && apt install -y software-properties-common && \
+        apt-add-repository ppa:launchpad/ubuntu/ppa && \
+        add-apt-repository ppa:lunar/libadwaita-1-dev && \
         apt update -y && \
         apt-get install -y --no-install-recommends curl apt-utils build-essential sudo git libgtk-4-dev libadwaita-1-dev=1.2.0-1ubuntu2 && \
         curl -OL https://go.dev/dl/go1.21.6.linux-amd64.tar.gz && \
