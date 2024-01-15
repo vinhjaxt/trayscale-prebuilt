@@ -20,7 +20,7 @@ jobs:
       run: |
         docker run --rm -v "$(pwd):/app:rw" ubuntu:lunar bash -c ' \
         apt update -y && \
-        apt install -y --no-install-recommends curl apt-utils build-essential sudo git libgtk-4-dev libadwaita-1-dev=1.2.0-1ubuntu2 && \
+        apt install -y --no-install-recommends curl apt-utils build-essential sudo git libgtk-4-dev && \
         curl -OL http://launchpadlibrarian.net/623621454/libadwaita-1-dev_1.2.0-1ubuntu2_amd64.deb && \
         apt install ./libadwaita-1-dev_1.2.0-1ubuntu2_amd64.deb && \
         curl -OL https://go.dev/dl/go1.21.6.linux-amd64.tar.gz && \
