@@ -20,7 +20,11 @@ jobs:
       run: |
         docker run --rm -v "$(pwd):/app:rw" golang:latest bash -c ' \
         apt update -y && \
-        apt-get install -y --no-install-recommends apt-utils build-essential sudo git libgtk-4-dev libadwaita-1-dev=1.2.0-1ubuntu2 && \
+        apt-get install -y --no-install-recommends curl apt-utils build-essential sudo git libgtk-4-dev libadwaita-1-dev=1.2.0-1ubuntu2 && \
+        curl -OL https://go.dev/dl/go1.21.6.linux-amd64.tar.gz && \
+        tar xf go1.21.6.linux-amd64.tar.gz && \
+        export PATH="${PATH}:$(pwd)/go/bin" && \
+        go env && \
         ./dist.sh build \
         '
 
