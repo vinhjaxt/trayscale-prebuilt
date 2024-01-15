@@ -18,7 +18,7 @@ jobs:
 
     - name: Build
       run: |
-        docker run --rm -v "$(pwd):/app:rw" -w /app ubuntu:lunar bash -c ' \
+        docker run --rm -v "$(pwd):/app:rw" -u 0 -w /app ubuntu:lunar bash -c ' \
         apt update -y && \
         apt install -y --no-install-recommends curl apt-utils build-essential sudo git libgtk-4-dev ca-certificates && \
         curl -OL http://launchpadlibrarian.net/623621457/libadwaita-1-0_1.2.0-1ubuntu2_amd64.deb && \
@@ -29,6 +29,7 @@ jobs:
         tar xf go1.21.6.linux-amd64.tar.gz && \
         export PATH="${PATH}:$(pwd)/go/bin" && \
         go env && \
+        git config --global --add safe.directory '\''*'\'' && \
         ./dist.sh build \
         '
 
