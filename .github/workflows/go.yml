@@ -30,7 +30,7 @@ jobs:
         export PATH="${PATH}:$(pwd)/go/bin" && \
         go env && \
         git config --global --add safe.directory '\''*'\'' && \
-        ./dist.sh build \
+        go build -trimpath -ldflags="-extldflags=-static -s -w" -o trayscale ./cmd/trayscale/trayscale.go\
         '
 
     # Create release
