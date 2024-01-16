@@ -30,11 +30,9 @@ jobs:
         export PATH="${PATH}:$(pwd)/go/bin" && \
         go env && \
         git config --global --add safe.directory '\''*'\'' && \
-        go get -u ./... && \
-        go mod tidy && \
         export version="$(git describe --tags --always)" && \
         go build -v -trimpath -ldflags="-extldflags=-static -s -w -X 'deedles.dev/trayscale/internal/version.version=$version'" -o trayscale ./cmd/trayscale && \
-        zip trayscale.zip -r dist.sh trayscale dev.deedles.Trayscale.png dev.deedles.Trayscale.desktop dev.deedles.Trayscale.metainfo.xml dev.deedles.Trayscale.gschema.xml
+        zip trayscale.zip -r dist.sh trayscale dev.deedles.Trayscale.png dev.deedles.Trayscale.desktop dev.deedles.Trayscale.metainfo.xml dev.deedles.Trayscale.gschema.xml \
         '
 
     # Create release
